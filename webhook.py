@@ -22,7 +22,6 @@ def topLogin(data: list) -> None:
         messageBonus += "\n"
 
     jsonData = {
-        "content": "<@334992555957813249>",
         "embeds": [
             {
                 "title": "FGO Daily Bonus - " + main.fate_region,
