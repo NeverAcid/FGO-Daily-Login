@@ -35,19 +35,20 @@ jobs:
           webhookDiscord: ${{ secrets.DISCORD_WEBHOOK }}
           
       - name: Execute main script
-            run: |
-              python3 main.py
-            env:
+        run: |
+            python3 main.py
+        env:
               userIds: ${{ secrets.GAME_USERIDS_2 }}
               authKeys: ${{ secrets.GAME_AUTHKEYS_2 }}
               secretKeys: ${{ secrets.GAME_SECRETKEYS_2 }}
               UserAgent: ${{ secrets.GAME_USERAGENT }}
               fateRegion: ${{ secrets.GAME_REGION }}
               webhookDiscord: ${{ secrets.DISCORD_WEBHOOK }}
+              
       - name: Execute main script
-            run: |
+        run: |
               python3 main.py
-            env:
+        env:
               userIds: ${{ secrets.GAME_USERIDS_3 }}
               authKeys: ${{ secrets.GAME_AUTHKEYS_3 }}
               secretKeys: ${{ secrets.GAME_SECRETKEYS_3 }}
@@ -55,9 +56,9 @@ jobs:
               fateRegion: ${{ secrets.GAME_REGION }}
               webhookDiscord: ${{ secrets.DISCORD_WEBHOOK }}
       - name: Execute main script
-            run: |
+        run: |
               python3 main.py
-            env:
+        env:
               userIds: ${{ secrets.GAME_USERIDS_4 }}
               authKeys: ${{ secrets.GAME_AUTHKEYS_4 }}
               secretKeys: ${{ secrets.GAME_SECRETKEYS_4 }}
@@ -65,9 +66,9 @@ jobs:
               fateRegion: ${{ secrets.GAME_REGION }}
               webhookDiscord: ${{ secrets.DISCORD_WEBHOOK }}
       - name: Execute main script
-            run: |
+        run: |
               python3 main.py
-            env:
+        env:
               userIds: ${{ secrets.GAME_USERIDS_5 }}
               authKeys: ${{ secrets.GAME_AUTHKEYS_5 }}
               secretKeys: ${{ secrets.GAME_SECRETKEYS_5 }}
