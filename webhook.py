@@ -135,7 +135,6 @@ def drawFP(servants, missions) -> None:
             message_mission += f"__{mission.message}__\n{mission.progressTo}/{mission.condition}\n"
 
     jsonData = {
-        "content": "<@334992555957813249>",
         "embeds": [
             {
                 "title": "FGO Daily Bonus - " + main.fate_region,
