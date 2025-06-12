@@ -7,6 +7,8 @@ import user
 import coloredlogs
 import logging
 from dotenv import load_dotenv
+from datetime import datetime
+from croniter import croniter
 
 load_dotenv()
 
@@ -16,6 +18,7 @@ authKeys = os.environ['authKeys'].split(',')
 secretKeys = os.environ['secretKeys'].split(',')
 fate_region = os.environ['fateRegion']
 webhook_discord_url = os.environ['webhookDiscord']
+blue_apple_cron = os.environ.get("MAKE_BLUE_APPLE")
 UA = os.environ['UserAgent']
 
 if UA != 'nullvalue':
@@ -28,6 +31,17 @@ secretKeyNums = len(secretKeys)
 logger = logging.getLogger("FGO Daily Login")
 coloredlogs.install(fmt='%(asctime)s %(name)s %(levelname)s %(message)s')
 
+def check_blue_apple_cron(instance):
+    if blue_apple_cron:
+
+        cron = croniter(blue_apple_cron)
+        next_date = cron.get_next(datetime)
+        current_date = datetime.now()
+
+        if current_date >= next_date:
+            logger.info('Trying buy one blue apple!')
+            instance.buyBlueApple(1)
+            time.sleep(2)
 
 def get_latest_verCode():
     endpoint = ""
@@ -57,9 +71,10 @@ def main():
                 time.sleep(2)
                 instance.topHome()
                 time.sleep(2)
-                # logger.info('Throw daily friend summon!')
-                # instance.drawFP()
-                # time.sleep(2)
+                logger.info('Throw daily friend summon!')
+                instance.drawFP()
+                time.sleep(2)
+                check_blue_apple_cron(instance)
             except Exception as ex:
                 logger.error(ex)
 
