@@ -189,7 +189,7 @@ class user:
 
         webhook.topLogin(DataWebhook)
         
-    def buyBlueApple(self, quantity=3):
+    def buyBlueApple(self, quantity=1):
 
         
 
