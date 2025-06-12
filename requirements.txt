@@ -7,3 +7,4 @@ msgpack
 coloredlogs
 google-play-scraper
 python-dotenv
+croniter
