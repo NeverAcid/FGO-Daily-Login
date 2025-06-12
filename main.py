@@ -31,11 +31,6 @@ secretKeyNums = len(secretKeys)
 logger = logging.getLogger("FGO Daily Login")
 coloredlogs.install(fmt='%(asctime)s %(name)s %(levelname)s %(message)s')
 
-def check_blue_apple_cron(instance):
-    if blue_apple_cron:
-            logger.info('Trying buy one blue apple!')
-            instance.buyBlueApple(1)
-            time.sleep(2)
 
 def get_latest_verCode():
     endpoint = ""
@@ -68,7 +63,9 @@ def main():
                 logger.info('Throw daily friend summon!')
                 instance.drawFP()
                 time.sleep(2)
-                check_blue_apple_cron(instance)
+                logger.info('Trying buy one blue apple!')
+                instance.buyBlueApple(1)
+                time.sleep(2)
             except Exception as ex:
                 logger.error(ex)
 
