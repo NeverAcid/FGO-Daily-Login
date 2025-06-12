@@ -189,12 +189,9 @@ class user:
 
         webhook.topLogin(DataWebhook)
         
-    def buyBlueApple(self, quantity=1):
-        # https://game.fate-go.jp/shop/purchase
+    def buyBlueApple(self, quantity=3):
 
-        if main.fate_region != "NA":
-            main.logger.error("Region not supported.")
-            return
+        
 
         self.builder_.AddParameter('id', '13000000') # Shop Blue Apple In JP
         self.builder_.AddParameter('num', str(quantity))
