@@ -64,7 +64,7 @@ def main():
                 instance.drawFP()
                 time.sleep(2)
                 logger.info('Trying buy one blue apple!')
-                instance.buyBlueApple(1)
+                instance.buyBlueApple()
                 time.sleep(2)
             except Exception as ex:
                 logger.error(ex)
