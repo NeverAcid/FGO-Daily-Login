@@ -1,0 +1,35 @@
+name: FGO Login System
+
+on:
+  # push:
+  #   branches: [master]
+  # pull_request:
+  #   branches: [master]
+  schedule:
+    - cron: "50 10 * * *"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.8]
+
+    steps:
+      - name: Gettings files from Repo
+        uses: actions/checkout@v2
+
+      - name: Install Requeriments
+        run: pip install -r requirements.txt
+
+      - name: Execute main script
+        run: |
+          python3 main.py
+        env:
+          userIds: ${{ secrets.GAME_USERIDS_4 }}
+          authKeys: ${{ secrets.GAME_AUTHKEYS_4 }}
+          secretKeys: ${{ secrets.GAME_SECRETKEYS_4 }}
+          UserAgent: ${{ secrets.GAME_USERAGENT }}
+          fateRegion: ${{ secrets.GAME_REGION }}
+          webhookDiscord: ${{ secrets.DISCORD_WEBHOOK }}
