@@ -60,8 +60,6 @@ def main():
                 time.sleep(2)
                 instance.topHome()
                 time.sleep(2)
-                logger.info('Throw daily friend summon!')
-                instance.drawFP()
                 time.sleep(2)
                 logger.info('Trying buy one blue apple!')
                 instance.buyBlueApple()
