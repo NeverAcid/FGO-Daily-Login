@@ -95,7 +95,7 @@ def shop(item: str, quantity: str) -> None:
                 "color": 5814783,
                 "fields": [
                     {
-                        "name": f"Shop Pursache",
+                        "name": f"Shop Purchase",
                         "value": f"You exchange {40 * quantity}Ap for {quantity}x {item}",
                         "inline": False
                     }
